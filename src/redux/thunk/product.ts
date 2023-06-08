@@ -1,8 +1,9 @@
-import { AppDispatch } from "./store";
-
-const productUrl = "https://fakestoreapi.com/products";
+import { AppDispatch } from "../store";
+import { productActions } from "../slices/products";
+import { productDetailActions } from "../slices/productDetail";
 
 export function fetchProductData() {
+  const productUrl = "https://fakestoreapi.com/products";
   return async (dispatch: AppDispatch) => {
     const response = await fetch(productUrl);
     const productData = await response.json();
@@ -10,10 +11,11 @@ export function fetchProductData() {
   };
 }
 
-export function fetchProductDetail() {
+export function fetchProductDetail(productId: string) {
+  const productDetailUrl = `https://fakestoreapi.com/products/${productId}`;
   return async (dispatch: AppDispatch) => {
-    const response = await fetch(url);
+    const response = await fetch(productDetailUrl);
     const productDetailData = await response.json();
-    dispatch(productActions.getProductDetail(productData));
+    dispatch(productDetailActions.getProductDetail(productDetailData));
   };
 }
