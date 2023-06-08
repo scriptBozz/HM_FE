@@ -8,7 +8,7 @@ export default function CartList() {
 
   return (
     <div>
-      CartList
+      <h1> Your Cart List</h1>
       {cartList.map((item) => (
         <CartItem item={item} />
       ))}

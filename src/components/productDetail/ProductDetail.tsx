@@ -21,7 +21,7 @@ export default function ProductDetail() {
     if (param) {
       dispatch(fetchProductDetail(productId));
     }
-  }, [dispatch]);
+  }, [dispatch, productId, param]);
 
   const [open, setOpen] = useState(false);
 
@@ -45,7 +45,11 @@ export default function ProductDetail() {
   return (
     <div>
       <div>
-        <img src={productDetail.image} alt={productDetail.title} />
+        <img
+          src={productDetail.image}
+          alt={productDetail.title}
+          height="50px"
+        />
         <div>
           <p>{productDetail.title}</p>
           <p> {productDetail.price}</p>

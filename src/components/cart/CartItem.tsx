@@ -6,14 +6,14 @@ import { Product } from "../../types/type";
 type Prop = {
   item: Product;
 };
+
 export default function CartItem({ item }: Prop) {
   return (
-    <div>
-      CartItem
+    <div className="cartItem">
       <p> {item.title}</p>
       <p>{item.price}</p>
       <Button> +</Button>
-      <p>quantity</p>
+      <p>1</p>
       <Button> -</Button>
     </div>
   );

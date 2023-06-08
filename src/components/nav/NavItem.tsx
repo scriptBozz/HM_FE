@@ -1,13 +1,13 @@
-import { Link } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function NavItem() {
   return (
     <div>
-      <Link href="/">Home</Link>
-      <Link href="/products">Products</Link>
-      <Link href="/fav">Wish list</Link>
-      <Link href="/carts">Cart</Link>
+      <Link to="/">Home</Link>
+      <Link to="/products">Products</Link>
+      <Link to="/fav">Wish list</Link>
+      <Link to="/carts">Cart</Link>
     </div>
   );
 }

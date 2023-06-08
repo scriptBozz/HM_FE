@@ -11,7 +11,7 @@ export default function ProductItem({ item }: Prop) {
   return (
     <div>
       <Link to={`/products/${item.id}`}>
-        <img src={item.image} alt={item.title} />
+        <img src={item.image} alt={item.title} height="50px" />
       </Link>
       <div>
         <p>{item.title}</p>
