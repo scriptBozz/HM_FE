@@ -1,6 +1,7 @@
 import React from "react";
 import { Product } from "../../types/type";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Link } from "react-router-dom";
 
 type Prop = {
   item: Product;
@@ -9,7 +10,9 @@ type Prop = {
 export default function ProductItem({ item }: Prop) {
   return (
     <div>
-      <img src={item.image} alt={item.title} />
+      <Link to={`/products/${item.id}`}>
+        <img src={item.image} alt={item.title} />
+      </Link>
       <div>
         <p>{item.title}</p>
         <p>{item.price}</p>

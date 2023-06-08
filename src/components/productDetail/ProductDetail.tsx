@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../redux/store";
 import { Alert, Button, Snackbar } from "@mui/material";
 
 import { Product } from "../../types/type";
 import { cartActions } from "../../redux/slices/cart";
+import { fetchProductDetail } from "../../redux/thunk/product";
 
 export default function ProductDetail() {
-  const dispatch = useDispatch();
   const productDetail = useSelector(
     (state: RootState) => state.productDetail.productDetail
   );
+
+  const dispatch = useDispatch<AppDispatch>();
+  const param = useParams();
+  const productId = param.id as string;
+
+  useEffect(() => {
+    if (param) {
+      dispatch(fetchProductDetail(productId));
+    }
+  }, [dispatch]);
 
   const [open, setOpen] = useState(false);
 
@@ -29,9 +40,8 @@ export default function ProductDetail() {
     setOpen(true);
   }
   if (!productDetail) {
-    return <p>No product ... </p>;
+    return <div>no data</div>;
   }
-
   return (
     <div>
       <div>
@@ -44,10 +54,14 @@ export default function ProductDetail() {
             Add to cart
           </Button>
         </div>
+        <p>
+          Members receive free standard shipping and free returns on purchases
+          of at least €25
+        </p>
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          This is a success message!
+          A <b>{productDetail.title}</b> is added to cart
         </Alert>
       </Snackbar>
     </div>

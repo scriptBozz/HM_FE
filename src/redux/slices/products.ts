@@ -4,7 +4,7 @@ import { Product } from "../../types/type";
 type InitialState = { loading: boolean; products: Product[] };
 
 const initialState: InitialState = {
-  loading: false,
+  loading: true,
   products: [],
 };
 

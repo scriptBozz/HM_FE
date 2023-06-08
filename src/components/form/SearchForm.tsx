@@ -15,9 +15,10 @@ export default function SearchForm() {
   return (
     <TextField
       id="standard-basic"
-      label="Standard"
+      label="Search"
       variant="standard"
       onChange={searchHandler}
+      helperText="Search product by name"
     />
   );
 }
