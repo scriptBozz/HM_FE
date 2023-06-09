@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { Alert, Button, Snackbar } from "@mui/material";
@@ -36,7 +36,7 @@ export default function ProductDetail() {
   };
 
   function onClickHandler(item: Product) {
-    dispatch(cartActions.getCartList(item));
+    dispatch(cartActions.addCartList(item));
     setOpen(true);
   }
   if (!productDetail) {
@@ -57,6 +57,9 @@ export default function ProductDetail() {
           <Button onClick={() => onClickHandler(productDetail)}>
             Add to cart
           </Button>
+          <Link to="/products">
+            <Button> Back</Button>
+          </Link>
         </div>
         <p>
           Members receive free standard shipping and free returns on purchases

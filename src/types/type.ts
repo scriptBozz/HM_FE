@@ -10,3 +10,7 @@ export type Product = {
     count: number;
   };
 };
+
+export type ProductCart = Product & {
+  quantity: 1;
+};
