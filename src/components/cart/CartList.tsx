@@ -12,6 +12,10 @@ export default function CartList() {
     const productTotal = current.price * current.quantity;
     return accumulator + productTotal;
   }, 0);
+
+  if (cartList.length === 0) {
+    return <div> Your cart is empty now</div>;
+  }
   return (
     <div>
       <h1> Your Cart List</h1>

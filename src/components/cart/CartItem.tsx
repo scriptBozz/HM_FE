@@ -15,13 +15,16 @@ export default function CartItem({ item }: Prop) {
     dispatch(cartActions.increaseQuantity(item));
   }
 
+  function decreaseQuantityHandler() {
+    dispatch(cartActions.decreaseQuantity(item));
+  }
   return (
     <div className="cartItem">
       <p> {item.title}</p>
       <p>{item.price}</p>
       <Button onClick={increaseQuantityHandler}> +</Button>
       <p>{item.quantity}</p>
-      <Button> -</Button>
+      <Button onClick={decreaseQuantityHandler}> -</Button>
     </div>
   );
 }

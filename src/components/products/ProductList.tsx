@@ -19,7 +19,7 @@ export default function ProductList() {
     return <Loading />;
   }
   return (
-    <div>
+    <div className="productList">
       {products.map((item) => (
         <ProductItem key={item.id} item={item} />
       ))}

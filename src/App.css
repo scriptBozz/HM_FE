@@ -5,6 +5,18 @@
   height: 50px;
 }
 
+.productList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.productTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
 .cartItem {
   display: flex;
   flex-direction: row;
