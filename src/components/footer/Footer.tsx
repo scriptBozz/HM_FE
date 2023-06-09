@@ -4,9 +4,9 @@ import FooterIcons from "./FooterIcons";
 
 export default function Footer() {
   return (
-    <div>
-      <FooterContent />
+    <div className="footer">
       <FooterIcons />
+      <FooterContent />
     </div>
   );
 }

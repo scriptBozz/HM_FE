@@ -7,11 +7,11 @@ import youtube from "../../assets/youtube.png";
 
 export default function FooterIcons() {
   return (
-    <div>
-      <img src={facebook} alt="media" height="50px" />
-      <img src={instagram} alt="media" height="50px" />
-      <img src={twitter} alt="media" height="50px" />
-      <img src={youtube} alt="media" height="50px" />
+    <div className="footerIcons">
+      <img src={facebook} alt="media" height="30px" className="footerImage" />
+      <img src={instagram} alt="media" height="30px" />
+      <img src={twitter} alt="media" height="30px" />
+      <img src={youtube} alt="media" height="30px" />
     </div>
   );
 }

@@ -23,3 +23,15 @@
   justify-content: space-around;
   width: 700px;
 }
+
+.footer {
+  margin-top: 3rem;
+}
+
+.footerIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  gap: 2rem;
+}
