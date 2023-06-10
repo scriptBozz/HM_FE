@@ -44,11 +44,11 @@ export default function ProductDetail() {
   }
   return (
     <div>
-      <div>
+      <div className="productDetail">
         <img
           src={productDetail.image}
           alt={productDetail.title}
-          height="50px"
+          height="550px"
         />
         <div>
           <p>{productDetail.title}</p>
@@ -60,11 +60,11 @@ export default function ProductDetail() {
           <Link to="/products">
             <Button> Back</Button>
           </Link>
+          <p>
+            Members receive free standard shipping and free returns on purchases
+            of at least €25
+          </p>
         </div>
-        <p>
-          Members receive free standard shipping and free returns on purchases
-          of at least €25
-        </p>
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>

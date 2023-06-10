@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 
 export default function SortForm() {
-  // const [age, setAge] = useState("");
   const [sortField, setSortField] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -16,9 +15,13 @@ export default function SortForm() {
   };
 
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+    <FormControl
+      variant="standard"
+      sx={{ m: 1, width: 120, marginLeft: 120, marginBottom: 10 }}
+    >
       <InputLabel id="demo-simple-select-standard-label">Sort by</InputLabel>
       <Select
+        sx={{}}
         labelId="demo-simple-select-standard-label"
         id="demo-simple-select-standard"
         value={sortField}

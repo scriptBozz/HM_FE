@@ -8,6 +8,8 @@
 .productList {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 50px;
+  column-gap: 10px;
 }
 
 .productTitle {
@@ -15,6 +17,20 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 300px;
+}
+
+.productInfor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.productDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rem;
 }
 
 .cartItem {

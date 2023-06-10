@@ -1,9 +1,14 @@
-import { Box, Button, Drawer } from "@mui/material";
+import { Badge, Box, Button, Drawer } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import WishList from "../wishList/WishList";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 export default function NavItem() {
+  const wishList = useSelector((state: RootState) => state.products.wishList);
+  const cartList = useSelector((state: RootState) => state.cartList.cartList);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = (open: boolean) => {
@@ -20,10 +25,14 @@ export default function NavItem() {
       </Link>
       <Button onClick={() => toggleDrawer(true)}>Wish list</Button>
       <Link to="/carts">
-        <Button> Cart</Button>
+        <Badge badgeContent={cartList.length} color="primary">
+          <Button> Cart</Button>
+        </Badge>
       </Link>
       <Drawer anchor="right" open={isOpen} onClose={() => toggleDrawer(false)}>
-        <WishList />
+        <Badge badgeContent={wishList.length} color="primary">
+          <WishList />
+        </Badge>
       </Drawer>
       <Link to="/">
         <Button>Brand</Button>

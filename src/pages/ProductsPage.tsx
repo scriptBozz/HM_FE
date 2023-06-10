@@ -7,6 +7,7 @@ export default function ProductsPage() {
   return (
     <div>
       <SearchForm />
+      <br></br>
       <SortForm />
       <ProductList />
     </div>
