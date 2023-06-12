@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { IconButton, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { red } from "@mui/material/colors";
+import { red, green } from "@mui/material/colors";
 
 import { Product } from "../../types/type";
 import { productActions } from "../../redux/slices/products";
@@ -34,6 +34,15 @@ export default function ProductItem({ item }: Prop) {
     }
     removeFavorite(product);
   }
+
+  // theme
+  // theme
+  const theme = useSelector((state: RootState) => state.theme.theme);
+
+  let textColor;
+  if (theme === "dark") {
+    textColor = "white";
+  }
   return (
     <div>
       <Link to={`/products/${item.id}`}>
@@ -47,15 +56,17 @@ export default function ProductItem({ item }: Prop) {
         </div>
       </Link>
       <div>
-        <Typography className="productTitle">{item.title}</Typography>
+        <Typography className="productTitle" sx={{ color: textColor }}>
+          {item.title}
+        </Typography>
         <div className="productInfor">
-          <p>{item.price} €</p>
+          <Typography sx={{ color: textColor }}>{item.price} €</Typography>
           <IconButton
             onClick={() => {
               onClickHandler(item);
             }}
           >
-            <FavoriteIcon sx={{ color: isFavorite ? red[500] : "primary" }} />
+            <FavoriteIcon sx={{ color: isFavorite ? red[500] : green[400] }} />
           </IconButton>
         </div>
       </div>

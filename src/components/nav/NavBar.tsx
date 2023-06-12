@@ -7,6 +7,7 @@ import { Box } from "@mui/material";
 
 export default function NavBar() {
   const theme = useSelector((state: RootState) => state.theme.theme);
+
   let backGroundColor;
   if (theme === "dark") {
     backGroundColor = "black";

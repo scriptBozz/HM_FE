@@ -55,7 +55,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 export default function SwitchButton() {
   const dispatch = useDispatch();
   function changeTheme() {
-    dispatch(themeActions.switchTheme("light"));
+    dispatch(themeActions.switchTheme());
   }
   return (
     <FormControlLabel

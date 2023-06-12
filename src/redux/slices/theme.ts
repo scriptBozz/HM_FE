@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type InitialState = {
-  theme: string;
+  theme: "light" | "dark";
 };
 
 const initialState: InitialState = {
@@ -12,13 +12,8 @@ const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    switchTheme: (state, action: PayloadAction<string>) => {
-      if (action.payload === "dark") {
-        state.theme = "light";
-      }
-      if (action.payload === "light") {
-        state.theme = "dark";
-      }
+    switchTheme: (state) => {
+      state.theme = state.theme === "light" ? "dark" : "light";
     },
   },
 });

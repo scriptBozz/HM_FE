@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { TextField } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productActions } from "../../redux/slices/products";
+import { RootState } from "../../redux/store";
 
 export default function SearchForm() {
   const dispatch = useDispatch();
@@ -12,6 +13,13 @@ export default function SearchForm() {
     dispatch(productActions.searchProduct(userInput));
   }
 
+  // theme
+  const theme = useSelector((state: RootState) => state.theme.theme);
+
+  let textColor;
+  if (theme === "dark") {
+    textColor = "white";
+  }
   return (
     <TextField
       id="standard-basic"
