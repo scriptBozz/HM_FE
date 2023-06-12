@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 
-import { Product, ProductCart } from "../../types/type";
+import { ProductCart } from "../../types/type";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/slices/cart";
 
@@ -11,6 +11,7 @@ type Prop = {
 
 export default function CartItem({ item }: Prop) {
   const dispatch = useDispatch();
+
   function increaseQuantityHandler() {
     dispatch(cartActions.increaseQuantity(item));
   }
@@ -22,9 +23,13 @@ export default function CartItem({ item }: Prop) {
     <div className="cartItem">
       <p> {item.title}</p>
       <p>{item.price}</p>
-      <Button onClick={increaseQuantityHandler}> +</Button>
+      <Button variant="outlined" onClick={increaseQuantityHandler}>
+        +
+      </Button>
       <p>{item.quantity}</p>
-      <Button onClick={decreaseQuantityHandler}> -</Button>
+      <Button variant="outlined" size="small" onClick={decreaseQuantityHandler}>
+        -
+      </Button>
     </div>
   );
 }

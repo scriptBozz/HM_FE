@@ -3,12 +3,12 @@ export type Product = {
   title: string;
   price: number;
   description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
+  category: {
+    id: number;
+    name: string;
+    image: string;
   };
+  images: string[];
 };
 
 export type ProductCart = Product & {

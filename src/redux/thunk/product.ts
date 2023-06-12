@@ -3,7 +3,7 @@ import { productActions } from "../slices/products";
 import { productDetailActions } from "../slices/productDetail";
 
 export function fetchProductData() {
-  const productUrl = "https://fakestoreapi.com/products";
+  const productUrl = "https://api.escuelajs.co/api/v1/products";
   return async (dispatch: AppDispatch) => {
     const response = await fetch(productUrl);
     const productData = await response.json();
@@ -12,7 +12,7 @@ export function fetchProductData() {
 }
 
 export function fetchProductDetail(productId: string) {
-  const productDetailUrl = `https://fakestoreapi.com/products/${productId}`;
+  const productDetailUrl = `https://api.escuelajs.co/api/v1/products/${productId}`;
   return async (dispatch: AppDispatch) => {
     const response = await fetch(productDetailUrl);
     const productDetailData = await response.json();

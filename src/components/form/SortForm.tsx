@@ -6,32 +6,39 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { productActions } from "../../redux/slices/products";
 
 export default function SortForm() {
   const [sortField, setSortField] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSortField(event.target.value);
+    setSortField(event.target.value as string);
   };
-
+  const dispatch = useDispatch();
+  if (sortField === "lowestPrice") {
+    dispatch(productActions.sortProductLowestPrice());
+  }
+  if (sortField === "highestPrice") {
+    dispatch(productActions.sortProductHighestPrice());
+  }
   return (
     <FormControl
       variant="standard"
-      sx={{ m: 1, width: 120, marginLeft: 120, marginBottom: 10 }}
+      sx={{ m: 1, width: 140, marginLeft: 120, marginBottom: 10 }}
     >
       <InputLabel id="demo-simple-select-standard-label">Sort by</InputLabel>
       <Select
-        sx={{}}
         labelId="demo-simple-select-standard-label"
         id="demo-simple-select-standard"
         value={sortField}
         onChange={handleChange}
         label="sortField"
       >
-        <MenuItem value={sortField}>Lowest price</MenuItem>
-        <MenuItem value={sortField}>Highest price</MenuItem>
-        <MenuItem value={sortField}>A-Z</MenuItem>
-        <MenuItem value={sortField}>Z-A</MenuItem>
+        <MenuItem value={"lowestPrice"}>Lowest price</MenuItem>
+        <MenuItem value={"highestPrice"}>Highest price</MenuItem>
+        <MenuItem value={"AZ"}>A-Z</MenuItem>
+        <MenuItem value={"ZA"}>Z-A</MenuItem>
       </Select>
     </FormControl>
   );

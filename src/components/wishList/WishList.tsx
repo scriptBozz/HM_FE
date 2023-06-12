@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Divider, List, ListItem } from "@mui/material";
+import { Divider, List, ListItem, Avatar, Typography } from "@mui/material";
 
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -20,8 +20,8 @@ export default function WishList() {
       <h1>wish list</h1>
       {wishList.map((item) => (
         <ListItem key={item.id} disablePadding>
-          wishList
-          {item.title}
+          <Avatar alt="Remy Sharp" src={item.images[0]} sx={{ m: "10px" }} />
+          <Typography>{item.title}</Typography>
           <Divider />
         </ListItem>
       ))}

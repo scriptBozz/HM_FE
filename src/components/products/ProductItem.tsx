@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IconButton, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { red } from "@mui/material/colors";
 
 import { Product } from "../../types/type";
 import { productActions } from "../../redux/slices/products";
+import { RootState } from "../../redux/store";
 
 type Prop = {
   item: Product;
@@ -14,15 +16,34 @@ type Prop = {
 export default function ProductItem({ item }: Prop) {
   const dispatch = useDispatch();
 
-  function addFavoriteHandler(item: Product) {
-    dispatch(productActions.addToWishList(item));
+  const wishList = useSelector((state: RootState) => state.products.wishList);
+  const isFavorite = wishList.some((product) => item.title === product.title);
+
+  function addToFavorite(product: Product) {
+    dispatch(productActions.addToWishList(product));
   }
 
+  function removeFavorite(product: Product) {
+    dispatch(productActions.removeFromWishList(product));
+  }
+
+  function onClickHandler(product: Product) {
+    if (!isFavorite) {
+      addToFavorite(product);
+      return;
+    }
+    removeFavorite(product);
+  }
   return (
     <div>
       <Link to={`/products/${item.id}`}>
         <div className="productImg">
-          <img src={item.image} alt={item.title} height="450px" width="400px" />
+          <img
+            src={item.images[0]}
+            alt={item.title}
+            height="450px"
+            width="400px"
+          />
         </div>
       </Link>
       <div>
@@ -31,10 +52,10 @@ export default function ProductItem({ item }: Prop) {
           <p>{item.price} €</p>
           <IconButton
             onClick={() => {
-              addFavoriteHandler(item);
+              onClickHandler(item);
             }}
           >
-            <FavoriteIcon />
+            <FavoriteIcon sx={{ color: isFavorite ? red[500] : "primary" }} />
           </IconButton>
         </div>
       </div>

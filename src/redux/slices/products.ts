@@ -30,6 +30,20 @@ const productSlice = createSlice({
     addToWishList: (state, action: PayloadAction<Product>) => {
       state.wishList.push(action.payload);
     },
+    removeFromWishList: (state, action: PayloadAction<Product>) => {
+      const result = state.wishList.filter(
+        (item) => (item.title = action.payload.title)
+      );
+      state.wishList = result;
+    },
+    sortProductLowestPrice: (state) => {
+      const result = state.products.sort((a, b) => a.price - b.price);
+      state.products = result;
+    },
+    sortProductHighestPrice: (state) => {
+      const result = state.products.sort((a, b) => b.price - a.price);
+      state.products = result;
+    },
   },
 });
 
