@@ -22,6 +22,12 @@ export default function SortForm() {
   if (sortField === "highestPrice") {
     dispatch(productActions.sortProductHighestPrice());
   }
+  if (sortField === "AZ") {
+    dispatch(productActions.sortProductAZ());
+  }
+  if (sortField === "ZA") {
+    dispatch(productActions.sortProductZA());
+  }
   return (
     <FormControl
       variant="standard"

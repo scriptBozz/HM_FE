@@ -8,6 +8,10 @@ import { Box } from "@mui/material";
 
 export default function ProductList() {
   const products = useSelector((state: RootState) => state.products.products);
+  const searchProducts = useSelector(
+    (state: RootState) => state.products.searchResult
+  );
+
   const isLoading = useSelector((state: RootState) => state.products.loading);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -23,13 +27,18 @@ export default function ProductList() {
   if (theme === "dark") {
     backGroundColor = "black";
   }
+  let productList = products;
 
   if (isLoading) {
     return <Loading />;
   }
+  if (searchProducts.length > 0) {
+    productList = searchProducts;
+  }
+
   return (
     <Box className="productList" sx={{ backgroundColor: backGroundColor }}>
-      {products.map((item) => (
+      {productList.map((item) => (
         <ProductItem key={item.id} item={item} />
       ))}
     </Box>
