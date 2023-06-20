@@ -25,7 +25,6 @@ const cartSlice = createSlice({
         foundProductCart.quantity += 1;
       }
     },
-
     decreaseQuantity: (state, action: PayloadAction<Product>) => {
       const foundProductCart = state.cartList.find(
         (item) => item.title === action.payload.title

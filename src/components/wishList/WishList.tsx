@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Divider, List, ListItem, Avatar, Typography } from "@mui/material";
 
 import { useSelector } from "react-redux";

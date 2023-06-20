@@ -12,6 +12,7 @@ export default function CartList() {
     const productTotal = current.price * current.quantity;
     return accumulator + productTotal;
   }, 0);
+
   // successful
   const [open, setOpen] = useState(false);
 

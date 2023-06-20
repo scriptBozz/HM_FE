@@ -36,7 +36,6 @@ export default function ProductItem({ item }: Prop) {
   }
 
   // theme
-  // theme
   const theme = useSelector((state: RootState) => state.theme.theme);
 
   let textColor;

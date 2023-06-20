@@ -12,5 +12,5 @@ export type Product = {
 };
 
 export type ProductCart = Product & {
-  quantity: 1;
+  quantity: number;
 };
