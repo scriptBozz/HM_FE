@@ -4,31 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { Alert, Button, Snackbar } from "@mui/material";
 
-
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-
-
-
-
 import { Product } from "../../types/type";
 import { cartActions } from "../../redux/slices/cart";
 import { fetchProductDetail } from "../../redux/thunk/product";
-
-
-
-
 
 export default function ProductDetail() {
   const productDetail = useSelector(
     (state: RootState) => state.productDetail.productDetail
   );
-
-  
 
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
@@ -76,12 +65,11 @@ export default function ProductDetail() {
             alt={productDetail.title}
             height="300px"
           />
-         
         </div>
         <div className="product">
           <p>{productDetail.title}</p>
           <p> Price: {productDetail.price}</p>
-          
+
           <Button onClick={() => onClickHandler(productDetail)}>
             Contact the Landlord
           </Button>
@@ -89,15 +77,17 @@ export default function ProductDetail() {
           <Link to="/products">
             <Button> Back</Button>
           </Link>
-          <p>
-            Members receive free nottifications on available Listings that suits
-            their needs
-          </p>
+          <Typography>
+            <p>
+              Paid members receive nottifications on available Listings that
+              suits their needs
+            </p>
+          </Typography>
         </div>
       </div>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          A <b>{productDetail.title}</b> is added to cart
+          A <b>{productDetail.title}</b> is added to your activity list.
         </Alert>
       </Snackbar>
       <hr></hr>
@@ -113,17 +103,14 @@ export default function ProductDetail() {
               id="panel1bh-header"
             >
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                General settings
+                Status
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
-                I am an accordion
+                Available
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
-                feugiat. Aliquam eget maximus est, id dignissim quam.
-              </Typography>
+              <Typography>Available from 12-12-2023 to 12-12-2024.</Typography>
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -136,18 +123,14 @@ export default function ProductDetail() {
               id="panel2bh-header"
             >
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                Users
+                Features
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
-                You are currently not an owner
+                No data available
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                Donec placerat, lectus sed mattis semper, neque lectus feugiat
-                lectus, varius pulvinar diam eros in elit. Pellentesque
-                convallis laoreet laoreet.
-              </Typography>
+              <Typography>...</Typography>
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -160,18 +143,14 @@ export default function ProductDetail() {
               id="panel3bh-header"
             >
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                Advanced settings
+                Construction
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
-                Filtering has been entirely disabled for whole web server
+                No data available
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl.
-                Integer sit amet egestas eros, vitae egestas augue. Duis vel est
-                augue.
-              </Typography>
+              <Typography>...</Typography>
             </AccordionDetails>
           </Accordion>
           <Accordion
@@ -184,15 +163,11 @@ export default function ProductDetail() {
               id="panel4bh-header"
             >
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                Personal data
+                Location
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                Nunc vitae orci ultricies, auctor nunc in, volutpat nisl.
-                Integer sit amet egestas eros, vitae egestas augue. Duis vel est
-                augue.
-              </Typography>
+              <Typography>...</Typography>
             </AccordionDetails>
           </Accordion>
         </div>
