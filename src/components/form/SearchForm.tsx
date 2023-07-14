@@ -19,7 +19,7 @@ export default function SearchForm() {
         label="Search"
         variant="standard"
         onChange={searchHandler}
-        helperText="Search product by name"
+        helperText="Search properties by name, location..."
       />
     </div>
   );
