@@ -79,7 +79,7 @@ export default function ProductItem({ item }: Prop) {
   }
   return (
     <div>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, color:textColor}}>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: blue[200] }} aria-label="recipe">

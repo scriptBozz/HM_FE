@@ -8,7 +8,7 @@ import Badge, { BadgeProps } from "@mui/material/Badge";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 
 import { RootState } from "../../redux/store";
-import SwitchButton from "../switchTheme/SwitchButton";
+// import SwitchButton from "../switchTheme/SwitchButton";
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
