@@ -30,7 +30,7 @@ export default function SortForm() {
     dispatch(productActions.sortProductZA());
   }
   return (
-    <FormControl
+    <FormControl className="sort"
       variant="standard"
       sx={{ m: 1, width: 140, marginLeft: 120, marginBottom: 10 }}
     >
@@ -46,6 +46,10 @@ export default function SortForm() {
         <MenuItem value={"highestPrice"}>Highest price</MenuItem>
         <MenuItem value={"AZ"}>A-Z</MenuItem>
         <MenuItem value={"ZA"}>Z-A</MenuItem>
+        <MenuItem value={"ok"}>ZipCode</MenuItem>
+        <MenuItem value={"ZA"}>Studio</MenuItem>
+        <MenuItem value={"AZ"}>Apartment</MenuItem>
+        <MenuItem value={"ZA"}>office space</MenuItem>
       </Select>
     </FormControl>
   );

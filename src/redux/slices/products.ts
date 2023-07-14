@@ -13,7 +13,7 @@ const initialState: InitialState = {
   products: [],
   searchResult: [],
   wishList: [],
-};
+}; 
 
 const productSlice = createSlice({
   name: "products",

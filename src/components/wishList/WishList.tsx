@@ -10,7 +10,9 @@ export default function WishList() {
   if (wishList.length === 0) {
     return (
       <div>
-        <p> Your wish list is empty</p>
+        <Typography>
+          <p> Your wish list is empty</p>
+        </Typography>
       </div>
     );
   }

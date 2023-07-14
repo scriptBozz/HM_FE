@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "./Logo";
 import NavItem from "./NavItem";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -15,7 +14,7 @@ export default function NavBar() {
 
   return (
     <Box sx={{ backgroundColor: backGroundColor }}>
-      <Logo />
+      
       <NavItem />
     </Box>
   );

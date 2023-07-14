@@ -17,5 +17,5 @@ export function fetchProductDetail(productId: string) {
     const response = await fetch(productDetailUrl);
     const productDetailData = await response.json();
     dispatch(productDetailActions.getProductDetail(productDetailData));
-  };
+  }; 
 }

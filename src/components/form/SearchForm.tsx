@@ -13,12 +13,14 @@ export default function SearchForm() {
   }
 
   return (
-    <TextField
-      id="standard-basic"
-      label="Search"
-      variant="standard"
-      onChange={searchHandler}
-      helperText="Search product by name"
-    />
+    <div className="search">
+      <TextField
+        id="standard-basic"
+        label="Search"
+        variant="standard"
+        onChange={searchHandler}
+        helperText="Search product by name"
+      />
+    </div>
   );
 }

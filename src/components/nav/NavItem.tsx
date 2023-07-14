@@ -5,6 +5,7 @@ import WishList from "../wishList/WishList";
 import { useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
 import Badge, { BadgeProps } from "@mui/material/Badge";
+import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 
 import { RootState } from "../../redux/store";
 import SwitchButton from "../switchTheme/SwitchButton";
@@ -29,36 +30,66 @@ export default function NavItem() {
   };
 
   return (
-    <Box sx={{ m: "12px" }}>
-      <Link to="/">
-        <Button>Home</Button>
-      </Link>
-      <Link to="/products">
-        <Button>Products</Button>
-      </Link>
-      <StyledBadge badgeContent={wishList.length} color="primary">
-        <Button onClick={() => toggleDrawer(true)}>Wish list</Button>
-      </StyledBadge>
+    <div className="navbar">
+      <Box sx={{ m: "12px" }}>
+        <Link to="/">
+          <Button>Home</Button>
+        </Link>
+        <Link to="/products">
+          <Button>Listings</Button>
+        </Link>
+        <StyledBadge badgeContent={wishList.length} color="primary">
+          <Button onClick={() => toggleDrawer(true)}>Wish list</Button>
+        </StyledBadge>
 
-      <Link to="/carts">
-        <Badge badgeContent={cartList.length} color="primary">
-          <Button> Cart</Button>
-        </Badge>
-      </Link>
-      <Drawer anchor="right" open={isOpen} onClose={() => toggleDrawer(false)}>
-        <WishList />
-      </Drawer>
+        <Link to="/carts">
+          <Badge badgeContent={cartList.length} color="primary">
+            <Button> Account</Button>
+          </Badge>
+        </Link>
+        <Drawer
+          anchor="right"
+          open={isOpen}
+          onClose={() => toggleDrawer(false)}
+        >
+          <WishList />
 
-      <Link to="/">
-        <Button>Brand</Button>
-      </Link>
-      <Link to="/">
-        <Button>Sustainability</Button>
-      </Link>
-      <Link to="/">
-        <Button>About us</Button>
-      </Link>
-      <SwitchButton />
-    </Box>
+          <Link to="/">
+            <Button>
+              <p>Home</p>
+            </Button>
+          </Link>
+          <Link to="/about">
+            <Button>
+              <p>About</p>
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button>
+              <p>Contact</p>
+            </Button>
+          </Link>
+          <Link to="/">
+            <Button>
+              <p>Login</p>
+            </Button>
+          </Link>
+        </Drawer>
+
+        <Link to="/contact">
+          <Button>Contact</Button>
+        </Link>
+        <Link to="/jobs">
+          <Button>Jobs</Button>
+        </Link>
+        <Link to="/about">
+          <Button>About us</Button>
+        </Link>
+        {/* <SwitchButton /> */}
+      </Box>
+      <Button onClick={() => toggleDrawer(true)}>
+        <DensityMediumIcon />
+      </Button>
+    </div>
   );
 }
