@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Paper, TextField, Button } from "@mui/material";
 
 export default function Signup() {
-    const [regtoggle, setRegtoggle] = useState(true)
-    const [regtoggle1, setRegtoggle1] = useState(false);
+  const [regtoggle, setRegtoggle] = useState(true);
+  const [regtoggle1, setRegtoggle1] = useState(false);
 
   return (
     <div
@@ -12,6 +12,7 @@ export default function Signup() {
         justifyContent: "center",
         alignItems: "center",
         gap: "20px",
+        flexWrap: "wrap",
       }}
     >
       {regtoggle && (
